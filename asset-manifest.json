@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/CryptoTrekker/static/js/main.92b1583a.js",
+    "static/media/bitcoin.png": "/CryptoTrekker/static/media/bitcoin.95e1255b310a68fc378f.png",
+    "static/media/logo.png": "/CryptoTrekker/static/media/logo.9baeb5e44fee5fad42b0.png",
+    "static/media/fb.png": "/CryptoTrekker/static/media/fb.1a3b20e073ad9693e9ec.png",
+    "index.html": "/CryptoTrekker/index.html",
+    "main.92b1583a.js.map": "/CryptoTrekker/static/js/main.92b1583a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.92b1583a.js"
+  ]
+}
