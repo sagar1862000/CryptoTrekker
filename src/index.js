@@ -9,9 +9,7 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
   <StrictMode>
-    <ColorModeScript />
-     <ChakraProvider theme={theme}>
-     <ColorModeSwitcher/>
+     <ChakraProvider theme={theme}> 
       <App/>
      </ChakraProvider>
   </StrictMode>
