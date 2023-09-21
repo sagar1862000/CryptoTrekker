@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { auth,googleprovider } from '../Config/Firebase';
 import { createUserWithEmailAndPassword ,signInWithPopup, updateProfile} from 'firebase/auth';
-import { Form, NavLink,useNavigate } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import logo from '../assets/signin.jpeg';
 const SignUp = () => {
   const navigate=new useNavigate();
