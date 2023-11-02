@@ -12,12 +12,14 @@ import {
 import { NavLink,useNavigate } from 'react-router-dom';
 import {auth} from '../Config/Firebase' 
 import { getAuth,signInWithEmailAndPassword } from 'firebase/auth';
+import {EyeInvisibleOutlined, EyeOutlined} from '@ant-design/icons';
 
   const SignIn = () => {
     const [user,setUser]=useState({
       Email:"",
       Password:"",
     });
+    const [visible, setVisible] = useState(false);
    const navigate=new useNavigate();
    const HandleChange = async (event) => {
    const name=event.target.name;
@@ -36,6 +38,14 @@ import { getAuth,signInWithEmailAndPassword } from 'firebase/auth';
     }
     catch(err){
       document.write(err);
+    }
+  }
+   const toggleVisibility = () =>{
+    if(!visible){
+      setVisible(true);
+    }
+    else{
+      setVisible(false);
     }
   }
 
@@ -58,13 +68,20 @@ import { getAuth,signInWithEmailAndPassword } from 'firebase/auth';
               />
               <Input
                 fontWeight={'bold'}
+                type={visible ? 'text' : 'password'}
                 color={'whiteAlpha.700'}
                 placeholder="Password"
                 name='Password'
-                type='password'
                 value={user.Password}
                 onChange={HandleChange}
               />
+                <Button h={'20px'} w={'20px'} onClick={toggleVisibility}>
+                {visible ? (
+                  <EyeOutlined/>
+                ) : (
+                  <EyeInvisibleOutlined/>
+                )}
+              </Button>
               <Link ml={60} mt={-6}>Forget password?</Link>
              <Button type={'submit'} mt={-4} bg={'purple.300'} onClick={UserSignIn}>SignIn</Button>
              <Box  ml={60} mt={-6}>
