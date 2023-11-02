@@ -35,15 +35,30 @@ const Footer = () => {
 
       <Flex p={2} flexDirection={'column'} textAlign={'start'}>
       <Heading ml={3} fontSize={20}>Explore</Heading>
-        <Text m={2} p={2}>
+        <Text m={2} p={2}css={{
+        '&:hover': {
+          transform: 'scale(1.1)',
+          borderColor: 'blue',
+        },
+      }}>
           <Link to={'/'}>Home</Link>
         </Text>
 
-        <Text m={2} p={2}>
+        <Text m={2} p={2}css={{
+        '&:hover': {
+          transform: 'scale(1.1)',
+          borderColor: 'blue',
+        },
+      }}>
           <Link to={'Coins'}> Coins</Link>
         </Text>
 
-        <Text m={2} p={2}>
+        <Text m={2} p={2}css={{
+        '&:hover': {
+          transform: 'scale(1.1)',
+          borderColor: 'blue',
+        },
+      }}>
           <Link to={'Exchange'}>Exchange</Link>
         </Text>
       </Flex>
@@ -53,17 +68,32 @@ const Footer = () => {
         <Flex direction={'column'} gap={3} mr={10}>
           <Flex direction={'row'} gap={2}>
             <Img h={7} w={7} borderRadius={'full'} src={whatsapp}></Img>
-            <a href="https://www.whatsapp.com/">whatsapp</a>
+            <a css={{
+        '&:hover': {
+          transform: 'scale(1.1)',
+          borderColor: 'blue',
+        },
+      }}href="https://www.whatsapp.com/">whatsapp</a>
           </Flex>
 
           <Flex direction={'row'} gap={2}>
             <Img h={7} w={7} borderRadius={'full'} src={insta}></Img>
-            <a href="https://www.instagram.com/">Instagram</a>
+            <a css={{
+        '&:hover': {
+          transform: 'scale(1.1)',
+          borderColor: 'blue',
+        },
+      }}href="https://www.instagram.com/">Instagram</a>
           </Flex>
 
           <Flex direction={'row'} gap={2}>
             <Img h={7} w={7} borderRadius={'full'} src={fb}></Img>
-            <a href="https://www.facebook.com/">Facebook</a>
+            <a css={{
+        '&:hover': {
+          transform: 'scale(1.1)',
+          borderColor: 'blue',
+        },
+      }}href="https://www.facebook.com/">Facebook</a>
           </Flex>
         </Flex>
       </Flex>
