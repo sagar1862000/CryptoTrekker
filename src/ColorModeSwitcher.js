@@ -6,18 +6,18 @@ import { FaMoon, FaSun } from 'react-icons/fa';
   const { toggleColorMode } = useColorMode();
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
-  // return (
-  //   <IconButton
-  //     variant="ghost"
-  //     color="current"
-  //     pos={'fixed'}
-  //     top={'100px'}
-  //     right={1}
-  //     onClick={toggleColorMode}
-  //     icon={<SwitchIcon />}
-  //     {...props}
-  //     zIndex={'overlay'}
-  //   />
-  // );
+   return (
+     <IconButton
+       variant="ghost"
+       color="current"
+       pos={'fixed'}
+       top={'100px'}
+       right={1}
+       onClick={toggleColorMode}
+       icon={<SwitchIcon />}
+       {...props}
+       zIndex={'overlay'}
+     />
+   );
 };
 export default ColorModeSwitcher ;
