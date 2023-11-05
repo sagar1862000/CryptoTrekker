@@ -52,14 +52,32 @@ const Header = () => {
       </Box>
       <Spacer />
       <Flex p={'4px'} m={'2px'} w={'50%'} justifyContent={'end'}>
-        <Text m={2} p={2}>
+        <Text m={2} p={2}
+          css={{
+            '&:hover': {
+              transform: 'scale(1.1)',
+              backgroundColor : 'gray'
+            },
+          }}>
           <Link to={'/'}>Home</Link>
         </Text>
 
-        <Text m={2} p={2}>
+        <Text m={2} p={2}
+          css={{
+            '&:hover': {
+              transform: 'scale(1.1)',
+              backgroundColor : 'gray'
+            },
+          }}>
           <Link to={'Coins'}> Coins</Link>
         </Text>
-        <Text m={2} p={2}>
+        <Text m={2} p={2}
+          css={{
+            '&:hover': {
+              transform: 'scale(1.1)',
+              backgroundColor : 'gray'
+            },
+          }}>
           <Link to={'Exchange'}>Exchange</Link>
         </Text>
         <Text m={2} p={2}>
