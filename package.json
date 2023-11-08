@@ -1,6 +1,6 @@
 {
   "name": "project3",
-  "homepage": "https://sagar1862000.github.io/CryptoTrekker",
+  "homepage": "http://localhost:3000/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
