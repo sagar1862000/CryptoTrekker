@@ -7,6 +7,8 @@ import CoinDetails from './Components/CoinDetails';
 import Footer from './Components/Footer';
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
+import Portfolio from './Components/PortFolio';
+import News from './Components/News';
 function App() {
   return (
     <Router>
@@ -18,10 +20,11 @@ function App() {
         <Route path="/Coin/:id" element={<CoinDetails />} />
         <Route path="/SignIn" element={<SignIn />} /> 
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path='/PortFolio' element={<Portfolio/>} />
+        <Route path='/News' element={<News/>} />
       </Routes>
       <Footer />
     </Router>
   );
 }
-
 export default App;

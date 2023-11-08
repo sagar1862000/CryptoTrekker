@@ -4,6 +4,7 @@ import {
   Button,
   Center,
   Container,
+  HStack,
   Heading,
   Img,
   Input,
@@ -11,10 +12,12 @@ import {
 } from '@chakra-ui/react';
 import { auth,googleprovider } from '../Config/Firebase';
 import { createUserWithEmailAndPassword ,signInWithPopup, updateProfile} from 'firebase/auth';
-import { Form, NavLink,useNavigate } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import logo from '../assets/signin.jpeg';
+import {EyeInvisibleOutlined , EyeOutlined} from '@ant-design/icons'
 const SignUp = () => {
   const navigate=new useNavigate();
+  const [visible, setVisible] = useState(false);
   const [user, setUser] = useState({
     Name: '',
     Email: '',
@@ -26,6 +29,14 @@ const SignUp = () => {
     value = event.target.value;
     setUser({ ...user, [name]: value });
   };
+  const toggleVisibilty = () => {
+    if(!visible){
+      setVisible(true)
+    }
+    else{
+      setVisible(false);
+    }
+  }
 
   const HandleSubmit = async () => {
     try {
@@ -79,20 +90,31 @@ const SignUp = () => {
               color={'black.700'}
               placeholder="Email"
               name="Email"
+              
               value={user.Email}
               onChange={setuserdata}
               required
             />
+             
             <Input
               fontWeight={'bold'}
               color={'black.700'}
               placeholder="Password"
               name="Password"
-              type="password"
+              type={visible ? 'text' : 'Password'}
               value={user.Password}
               onChange={setuserdata}
               required
+
             />
+            <Button h={'20px'} w={'20px'} ml={'450px'} mt={'-60px'} onClick={toggleVisibilty}>
+              {visible ? (
+                <EyeOutlined/>
+              ) : (
+                <EyeInvisibleOutlined/>
+              )}
+              </Button>
+            
             <Button
               type="submit"
               mt={3}

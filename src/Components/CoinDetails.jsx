@@ -23,7 +23,9 @@ import { useEffect, useState } from 'react';
 import Loader from './Loader';
 import { useParams } from 'react-router-dom';
 import Chart from './Chart';
-//import { Chart } from 'chart.js';
+import { db } from '../Config/Firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import {auth} from '../Config/Firebase'
 
 const CoinDetails = () => {
   const [coin, SetCoin] = useState({});
@@ -32,6 +34,14 @@ const CoinDetails = () => {
   const [Currency, SetCurrency] = useState('inr');
   const [days, setDays] = useState('24h');
   const [chartarray, setChartArray] = useState([]);
+  const [portId, setPortId] = useState({
+    PortCoinId: '',
+    PortCoinSymbol: '',
+    PortCurrPrice: '',
+    Port24H: '',
+    PortCoinImg : '',
+    PortCoinPriceChange : ''
+  });
   const params = useParams();
 
   const CurrencySymbol =
@@ -80,6 +90,39 @@ const CoinDetails = () => {
         break;
     }
   };
+  const userUID = auth.currentUser.uid;
+  useEffect(() => {
+    if (portId.PortCoinId === '') {
+      return;
+    } else {
+      //alert(portId);
+      const coinIdRef = collection(db, `users/${userUID}/Portfolio`);
+      addDoc(coinIdRef, {
+        CoinId: portId.PortCoinId,
+        Symbol: portId.PortCoinSymbol,
+        Price: portId.PortCurrPrice,
+        Change: portId.Port24H,
+        Image : portId.PortCoinImg,
+        HelperChange : portId.PortCoinPriceChange
+      })
+        .then(Response => {
+          alert(`data added  SuccesFully`);
+        })
+        .catch(console.error);
+    }
+  }, [portId]);
+
+  const HandleAddToPortfolio = () => {
+    const updatedState = { ...portId };
+    updatedState.PortCoinId = coin.id;
+    updatedState.PortCoinSymbol = coin.symbol;
+    updatedState.Port24H = coin.market_data.price_change_percentage_24h;
+    updatedState.PortCurrPrice = coin.market_data.current_price.inr;
+    updatedState.PortCoinImg=coin.image.large;
+    updatedState.PortCoinPriceChange = coin.market_data.price_change_percentage_24h;
+    setPortId(updatedState);
+    console.log(portId);
+  };
 
   useEffect(() => {
     const fetchCoin = async () => {
@@ -91,13 +134,14 @@ const CoinDetails = () => {
         setChartArray(chartData.prices);
         SetCoin(data);
         SetLoading(false);
+        console.log(data);
       } catch (error) {
         SetisError(error.message);
         SetLoading(false);
       }
     };
     fetchCoin();
-  }, [Currency, params.id,days]);
+  }, [Currency, params.id, days]);
 
   if (isError !== '') return isError;
 
@@ -125,6 +169,17 @@ const CoinDetails = () => {
                 USD
               </Radio>
             </Flex>
+            <Button
+              ml={'1vh'}
+              color={'green.300'}
+              onClick={HandleAddToPortfolio}
+              height={'30px'}
+              w={'125px'}
+              mb={'10px'}
+              mt={'10px'}
+            >
+              Add to Portfolio
+            </Button>
           </RadioGroup>
           <Box w={'full'} borderWidth={1}>
             <Chart arr={chartarray} currency={CurrencySymbol} days={days} />

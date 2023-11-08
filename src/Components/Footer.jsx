@@ -64,10 +64,10 @@ const Footer = () => {
       </Flex>
 
       <Flex direction={'column'} gap={5}>
-        <Heading  fontSize={25}>Follow Us</Heading>
-        <Flex direction={'column'} gap={3} mr={10}>
+        <Heading  fontSize={20}>Follow Us</Heading>
+        <Flex direction={'column'} gap={8} mr={10}>
           <Flex direction={'row'} gap={2}>
-            <Img h={7} w={7} borderRadius={'full'} src={whatsapp}></Img>
+            <Img h={6} w={6} borderRadius={'full'} src={whatsapp}></Img>
             <a css={{
         '&:hover': {
           transform: 'scale(1.1)',
@@ -77,7 +77,7 @@ const Footer = () => {
           </Flex>
 
           <Flex direction={'row'} gap={2}>
-            <Img h={7} w={7} borderRadius={'full'} src={insta}></Img>
+            <Img h={6} w={6} borderRadius={'full'} src={insta}></Img>
             <a css={{
         '&:hover': {
           transform: 'scale(1.1)',
@@ -87,7 +87,7 @@ const Footer = () => {
           </Flex>
 
           <Flex direction={'row'} gap={2}>
-            <Img h={7} w={7} borderRadius={'full'} src={fb}></Img>
+            <Img h={6} w={6} borderRadius={'full'} src={fb}></Img>
             <a css={{
         '&:hover': {
           transform: 'scale(1.1)',

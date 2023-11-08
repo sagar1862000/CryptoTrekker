@@ -10,7 +10,6 @@ root.render(
   <StrictMode>
     
      <ChakraProvider >
-     
       <App/>
      </ChakraProvider>
   </StrictMode>

@@ -15,31 +15,37 @@ import Loader from './Loader';
 const Exchange = () => {
   const [exchanges, setExchanges] = useState([]);
   const [loading, SetLoading] = useState(true);
-  const [isError,SetisError]=useState("");
+  const [isError, SetisError] = useState('');
   useEffect(() => {
     const fecthExchanges = async () => {
-      try{
-      const { data } = await axios.get(`${server}/exchanges`);
-      setExchanges(data);
-      console.log(data);
-      SetLoading(false);
-      }
-      catch(error){
-
-SetisError(error.message);
-SetLoading(false);
+      try {
+        const { data } = await axios.get(`${server}/exchanges`);
+        setExchanges(data);
+        SetLoading(false);
+      } catch (error) {
+        SetisError(error.message);
+        SetLoading(false);
       }
     };
     fecthExchanges();
   }, []);
-  if(isError!=="") return isError;
+  if (isError !== '') return isError;
   return (
     <Container maxW={'container.xl'}>
       {loading ? (
         <Loader />
       ) : (
         <>
-        <Heading m={4} p={4} >Populer Exchanges</Heading>
+          <Heading
+            m={4}
+            p={4} 
+            fontSize={'30px'}
+            bgGradient="linear(to-b, yellow.100, yellow.800)"
+            bgClip="text"
+            fontWeight="extrabold"
+          >
+            Populer Exchanges
+          </Heading>
           <HStack wrap={'wrap'} justifyContent={'space-evenly'}>
             {exchanges.map(i => (
               <Exchangecard
@@ -59,26 +65,24 @@ SetLoading(false);
 export default Exchange;
 const Exchangecard = ({ name, img, rank, url }) => {
   return (
-    
-      <a href={url}>
-        <VStack
-          h={'150px'}
-          w={'180px'}
-          m={2}
-          p={2}
-          shadow={'lg'}
-          transition={'0.3s'}
-          css={{
-            "&:hover":{
-              transform:"scale(1.1)",
-            },
-          }}
-        >
-          <Img h={'70px'} src={img} />
-          <Heading size={'20px'}>{rank}</Heading>
-          <Text noOfLines={1}>{name}</Text>
-        </VStack>
-      </a>
-    
+    <a href={url}>
+      <VStack
+        h={'150px'}
+        w={'180px'}
+        m={2}
+        p={2}
+        shadow={'lg'}
+        transition={'0.3s'}
+        css={{
+          '&:hover': {
+            transform: 'scale(1.1)',
+          },
+        }}
+      >
+        <Img h={'70px'} src={img} />
+        <Heading size={'20px'}>{rank}</Heading>
+        <Text noOfLines={1}>{name}</Text>
+      </VStack>
+    </a>
   );
 };

@@ -56,7 +56,7 @@ const Header = () => {
           css={{
             '&:hover': {
               transform: 'scale(1.1)',
-              backgroundColor : 'gray'
+              //backgroundColor : 'gray'
             },
           }}>
           <Link to={'/'}>Home</Link>
@@ -66,7 +66,7 @@ const Header = () => {
           css={{
             '&:hover': {
               transform: 'scale(1.1)',
-              backgroundColor : 'gray'
+              //backgroundColor : 'gray'
             },
           }}>
           <Link to={'Coins'}> Coins</Link>
@@ -75,15 +75,24 @@ const Header = () => {
           css={{
             '&:hover': {
               transform: 'scale(1.1)',
-              backgroundColor : 'gray'
+              //backgroundColor : 'gray'
             },
-          }}>
+           }}>
           <Link to={'Exchange'}>Exchange</Link>
+        </Text>
+        <Text m={2} p={2}
+          css={{
+            '&:hover': {
+              transform: 'scale(1.1)',
+              //backgroundColor : 'gray'
+            },
+           }}>
+          <Link to={'/News'}>News</Link>
         </Text>
         <Text m={2} p={2}>
           {user ? (
             <VStack>
-              <Text as="b">{user.displayName}</Text>
+              <Text as="b" >{user.displayName}</Text>
               <Button onClick={onOpen} ref={buttonRef} h={'15px'} w={'15px'}>
                 <Img
                   style={{ filter: 'brightness(0) invert(1)' }}
@@ -94,21 +103,22 @@ const Header = () => {
                 />
               </Button>
               <Drawer
+                
                 isOpen={isOpen}
                 onClose={onClose}
                 finalFocusRef={buttonRef}
                 initialFocusRef={buttonRef}
               >
                 <DrawerOverlay />
-                <DrawerContent style={{ width: '30vw', height: '30vh' }}>
+                <DrawerContent rounded={'xl'} m={'10px'} style={{ width: '20vw', height: '25vh' }}>
                   <DrawerCloseButton />
-                  <DrawerBody>
+                  <DrawerBody >
                     <VStack>
                       <Button onClick={onClose} variant={'ghost'}>
-                        <Link to={'/Portfolio'}>Your PortFolio</Link>
+                        <Link to={'/Portfolio'}>WatchList</Link>
                       </Button>
                       <Button variant={'ghost'} onClick={handleSignOut}>
-                        <Link to={'/Portfolio'}>SignOut</Link>
+                        <Link to={'/'}>SignOut</Link>
                       </Button>
                     </VStack>
                   </DrawerBody>
