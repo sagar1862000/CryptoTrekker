@@ -80,7 +80,7 @@ const Header = () => {
            }}>
           <Link to={'Exchange'}>Exchange</Link>
         </Text>
-        <Text m={2} p={2}
+        {/* <Text m={2} p={2}
           css={{
             '&:hover': {
               transform: 'scale(1.1)',
@@ -88,7 +88,7 @@ const Header = () => {
             },
            }}>
           <Link to={'/News'}>News</Link>
-        </Text>
+        </Text> */}
         <Text m={2} p={2}>
           {user ? (
             <VStack>

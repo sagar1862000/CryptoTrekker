@@ -85,12 +85,10 @@ const SignIn = () => {
               {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
             </Button>
 
-            <Link ml={60} mt={-6}>
-              Forget password?
-            </Link>
+            
             <Button
               type={'submit'}
-              mt={-4}
+              mt={0}
               bg={'purple.300'}
               onClick={UserSignIn}
             >

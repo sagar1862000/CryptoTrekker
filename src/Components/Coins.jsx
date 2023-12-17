@@ -9,10 +9,8 @@ import {
   VStack,
   Text,
   Flex,
-  Input,
   RadioGroup,
   Radio,
-  Button,
 } from '@chakra-ui/react';
 import Loader from './Loader';
 import { Link } from 'react-router-dom';

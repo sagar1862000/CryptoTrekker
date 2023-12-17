@@ -1,12 +1,8 @@
 import {
   Box,
-  Button,
   Center,
-  Flex,
-  HStack,
   Heading,
   Img,
-  Text,
   VStack,
   StatArrow,
   Stat,
@@ -36,7 +32,6 @@ const Portfolio = () => {
         getPortCoins();
       } else {
         setUser(null);
-        //setPortCoins([]);
       }
     });
     return () => unsubscribe();
